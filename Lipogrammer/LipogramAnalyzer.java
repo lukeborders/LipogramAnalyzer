@@ -16,32 +16,42 @@ public class LipogramAnalyzer {
 			beginning--;
 			
 		}
-		if(index == -1) {
-			beginning = 0; 
-			end = 0;
+		if(beginning == -1) {
+			beginning = 0;
 		} 
 		 
 		 
-		while(end < txt.length()-1 && Character.isWhitespace(txt.charAt(end)) == false) {
+		while(end < txt.length() && Character.isWhitespace(txt.charAt(end)) == false) {
 			System.out.println(end);
 			end++;
 			
 		}
-		
-		String word = txt.substring(beginning,end + 1);
+		if(end == -1) {
+			end = 0;
+		}
+
+		String word = txt.substring(beginning+1,end);
 		System.out.println(word);
 		return word; 
  	}
 	public String allWordsWith(char letter) {
 		int i = 0;
+
 		String word = "";		
-		while(i >= 0 && i <= txt.length()) {
+		while(i >= 0 && i < txt.length()) {
 			if(txt.charAt(i) == letter) {
 				String n = getWord(i);
-				word =  word + n + "\n"; 
-				return word;
+				word = word + n + "\n";
+				System.out.println(word);
 			}
-			i = i + 1; 
+
+
+
+			/*if(getWord(i).equals()) {
+				word.replace(getWord(i),"");
+			}*/
+			
+			i++;
 		}
 		return word;
 	}
